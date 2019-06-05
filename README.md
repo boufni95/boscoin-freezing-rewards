@@ -1,0 +1,2 @@
+# Boscoin explorer 
+This BOScoin application is community made and has no direct affiliation with BlockchainOS Inc. Daily Reward calculation is based upon formulae provided by BlockchainOS Inc. Assumptions are needed in order to calculate rewards. These assumptions include the total amount of frozen BOS. More information can be found on https://boscoin.io
