@@ -13,7 +13,7 @@ document.querySelector('#accounts').addEventListener("input",function(e){
         document.querySelector('#gain').innerHTML = isNaN(e.target.value)? "insert a number":"loading"
     }
     if(!isNaN(freezeTot)){
-        document.querySelector('#gain').innerHTML = isNaN(e.target.value)? "insert a number": Math.round((440640 * e.target.value*10000*30)/freezeTot)
+        document.querySelector('#gain').innerHTML = isNaN(e.target.value)? "insert a number": "Monthly reward : "+Math.round((440640 * e.target.value*10000*30)/freezeTot)+" BOS"
     }
     
 })
@@ -74,6 +74,10 @@ function fetcherFreeze(){
       }
     }
     console.log(resString)
-    document.querySelector("#daily").innerHTML = Math.round((440640 * 10000)/freezeTot)
+    document.querySelector("#daily").innerHTML = ((440640 * 10000)/freezeTot).toFixed(2)
   });
 }
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
