@@ -6,7 +6,19 @@ window.addEventListener('load', (event) => {
     'use strict';
 
 
-
+document.querySelector("#copyClip").addEventListener("click",function(e){
+  console.log("swag")
+  var copied = copyTextToClipboard("GDDLVYJNV6VTNACLKWHB7B2LD7YA6JJEDB4U6O7KORQ2F7BVQTGHHAQH")
+  if (copied){
+    $("#notification").css("opacity","1")
+  }
+  setTimeout(function(){
+    if (copied){
+      $("#notification").css("opacity","0")
+    }
+  },2000)
+  
+})
 
 document.querySelector('#accounts').addEventListener("input",function(e){
     if(freezeTot == "loading"){
@@ -81,3 +93,22 @@ function fetcherFreeze(){
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+function copyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  var msg
+  try {
+    var successful = document.execCommand('copy');
+    msg = successful ? 'successful' : 'unsuccessful';
+    //console.log('Fallback: Copying text command was ' + msg);
+  } catch (err) {
+    //console.error('Fallback: Oops, unable to copy', err);
+  }
+
+  document.body.removeChild(textArea);
+  return msg
+}
